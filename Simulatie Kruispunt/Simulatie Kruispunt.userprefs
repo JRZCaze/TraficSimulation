@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Simulatie Kruispunt.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controller.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Car.cs" Line="113" Column="5" />
+      <File FileName="Assets\Scripts\CarSpawner.cs" Line="15" Column="23" />
+      <File FileName="Assets\Scripts\Trigger.cs" Line="12" Column="2" />
+      <File FileName="Assets\Scripts\TraficLight.cs" Line="50" Column="6" />
+      <File FileName="Assets\Scripts\Controller.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

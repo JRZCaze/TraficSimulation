@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Trigger1
+  - TraficLight1
+  - TraficLight2
+  - Trigger1P
+  - Trigger1S
+  - TraficLight3
+  - Trigger2P
+  - Trigger3P
+  - Trigger2S
+  - Trigger3S
+  - TraficLight4
+  - TraficLight5
+  - TraficLight6
+  - TraficLight7
+  - TraficLight8
+  - TraficLight9
+  - TraficLight10
+  - TraficLight11
+  - TraficLight12
+  - Trigger4S
+  - Trigger4P
+  - Trigger5P
+  - Trigger6P
+  - Trigger7P
+  - Trigger8P
+  - Trigger9P
+  - Trigger10P
+  - Trigger11P
+  - Trigger12P
+  - Trigger5S
+  - Trigger6S
+  - Trigger7S
+  - Trigger8S
+  - Trigger9S
+  - Trigger10S
+  - Trigger11S
+  - Trigger12S
+  - Controller
+  - TraficLight13
+  - Trigger1.1P
+  - Trigger1.2P
+  - Trigger1.3P
+  - Trigger1.4P
+  - Trigger2.1P
+  - Trigger2.2P
+  - Trigger2.3P
+  - Trigger2.4P
+  - Trigger3.1P
+  - Trigger3.2P
+  - Trigger3.3P
+  - Trigger3.4P
+  - Trigger4.1P
+  - Trigger4.2P
+  - Trigger4.3P
+  - Trigger4.4P
+  - TraficLight1.1P
+  - TraficLight1.2P
+  - TraficLight1.3P
+  - TraficLight1.4P
+  - TraficLight2.1P
+  - TraficLight2.2P
+  - TraficLight2.3P
+  - TraficLight2.4P
+  - TraficLight3.1P
+  - TraficLight3.2P
+  - TraficLight3.3P
+  - TraficLight3.4P
+  - TraficLight4.1P
+  - TraficLight4.2P
+  - TraficLight4.3P
+  - TraficLight4.4P
+  - Trigger2.1B
+  - Trigger2.2B
+  - Trigger2.3B
+  - Trigger2.4B
+  - TraficLight2.1B
+  - TraficLight2.2B
+  - TraficLight2.3B
+  - TraficLight2.4B
+  - bridge
+  - BoatTrigger1
+  - BoatTrigger2
+  - BoatTraficLight1
+  - BoatTraficLight2
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 796196227
+    locked: 0
+  - name: Foreground
+    uniqueID: 2965455505
+    locked: 0
