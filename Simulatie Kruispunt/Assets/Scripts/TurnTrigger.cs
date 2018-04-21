@@ -186,7 +186,7 @@ public class TurnTrigger : MonoBehaviour {
                 {
                     try
                     {
-                        Car.Rotate(TurnOption1, turnSpeed);
+                        Car.ForceRotate(TurnOption1, turnSpeed);
                     }
                     catch
                     {
@@ -210,7 +210,7 @@ public class TurnTrigger : MonoBehaviour {
                 {
                     try
                     {
-                        Car.Rotate(TurnOption2, turnSpeed);
+                        Car.ForceRotate(TurnOption2, turnSpeed);
                     }
                     catch
                     {
@@ -234,7 +234,7 @@ public class TurnTrigger : MonoBehaviour {
                 {
                     try
                     {
-                        Car.Rotate(TurnOption3, turnSpeed);
+                        Car.ForceRotate(TurnOption3, turnSpeed);
                     }
                     catch
                     {
@@ -258,7 +258,7 @@ public class TurnTrigger : MonoBehaviour {
                 {
                     try
                     {
-                        Car.Rotate(TurnOption4, turnSpeed);
+                        Car.ForceRotate(TurnOption4, turnSpeed);
                     }
                     catch
                     {

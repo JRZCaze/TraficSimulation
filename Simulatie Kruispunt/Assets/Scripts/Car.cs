@@ -26,8 +26,10 @@ public class Car : MonoBehaviour {
     private float turnSpeed;
     public bool TurnRight;
     public bool TurnLeft;
+    private bool carDrive;
 
     private float StandingStillCount;
+    private float StandingStillCount2;
     private float StandingStillX;
     private float StandingStillY;
     private float minspeed;
@@ -55,6 +57,18 @@ public class Car : MonoBehaviour {
 	void Update () 
 	{
         StandingStillCount++;
+        StandingStillCount2++;
+
+        if (!CanDrive)
+        {
+            StandingStillCount2++;
+        }
+
+        if (StandingStillCount2 > 100)
+        {
+            CanDrive = true;
+            StandingStillCount2 = 0;
+        }
 
         transform.eulerAngles = new Vector3(0, 0, CurrentAngle);
         transform.Translate(Speed / 100, 0, 0);
@@ -110,19 +124,22 @@ public class Car : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        DestroyGameObject();
+        //DestroyGameObject();
         Debug.Log("BOOOOM");
     }
 
     void OnTriggerStay2D(Collider2D other)
-	{
-		if (other.gameObject.transform.position.x < transform.position.x && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.y == other.gameObject.transform.position.y*/) 
-		{
-            behindCar = other.gameObject.GetComponent<Car> ();
-			behindCar.StopEngine ();
-            //Debug.Log ("Engine stop");
+    {
+        if (CurrentAngle < 45 && CurrentAngle >= 315)
+        {
+            if (other.gameObject.transform.position.x < transform.position.x && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.y == other.gameObject.transform.position.y*/)
+            {
+                behindCar = other.gameObject.GetComponent<Car>();
+                behindCar.StopEngine();
+                //Debug.Log ("Engine stop");
+            }
         }
-        if (CurrentAngle >= 135 && CurrentAngle < 225)
+        else if (CurrentAngle >= 135 && CurrentAngle < 225)
         {
             if (other.gameObject.transform.position.x > transform.position.x && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.y == other.gameObject.transform.position.y*/)
             {
@@ -131,7 +148,7 @@ public class Car : MonoBehaviour {
                 //Debug.Log ("Engine stop");
             }
         }
-        if (CurrentAngle >= 225 && CurrentAngle < 315)
+        else if (CurrentAngle >= 225 && CurrentAngle < 315)
         {
             if (other.gameObject.transform.position.y > transform.position.y && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.x == other.gameObject.transform.position.x*/)
             {
@@ -140,7 +157,7 @@ public class Car : MonoBehaviour {
                 //Debug.Log ("Engine stop");
             }
         }
-        if (CurrentAngle >= 45 && CurrentAngle < 135)
+        else if (CurrentAngle >= 45 && CurrentAngle < 135)
         {
             if (other.gameObject.transform.position.y < transform.position.y && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.x == other.gameObject.transform.position.x*/)
             {
@@ -149,31 +166,51 @@ public class Car : MonoBehaviour {
                 //Debug.Log ("Engine stop");
             }
         }
+        behindCar = null;
     }
 
-	void OnTriggerExit2D (Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        /*if (CurrentAngle >= 135 && CurrentAngle < 225)
+        {
+            if (other.gameObject.transform.position.x > transform.position.x && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.y == other.gameObject.transform.position.y*///)
+            /*{
+                //behindCar = other.gameObject.GetComponent<Car>();
+                behindCar.StartEngine();
+                //Debug.Log ("Engine stop");
+            }
+        }*/
+    }
+
+        void OnTriggerExit2D (Collider2D other)
 	{
-		if (other.gameObject.transform.position.x < transform.position.x && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus"))) 
+		if (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) 
 		{
             //Car behindCar = other.gameObject.GetComponent<Car> ();
             try
             {
-                behindCar.StartEngine();
-                behindCar = null;
+            behindCar = other.gameObject.GetComponent<Car>();
+            behindCar.StartEngine();
+            behindCar = null;
             }
             catch
             {
             }
 			//Debug.Log ("Engine start");
 		}
-	}
+    }
 		
 	public void StartEngine()
 	{
 		CanDrive = true;
 	}
 
-	public void StopEngine()
+    public void StartEngineforce()// temp
+    {
+        carDrive = true;
+    }
+
+    public void StopEngine()
 	{
 		CanDrive = false;
 	}

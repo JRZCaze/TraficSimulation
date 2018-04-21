@@ -83,12 +83,12 @@ public class Boat : MonoBehaviour {
         }
         if (CurrentAngle >= 135 && CurrentAngle < 225)
         {
-            if (other.gameObject.transform.position.x > transform.position.x && other.gameObject.name.Contains("boat") /*&& transform.position.y == other.gameObject.transform.position.y*/)
-            {
-                behindBoat = other.gameObject.GetComponent<Boat>();
-                behindBoat.StopEngine();
-                //Debug.Log ("Engine stop");
-            }
+            //if (other.gameObject.transform.position.x > transform.position.x && other.gameObject.name.Contains("boat") /*&& transform.position.y == other.gameObject.transform.position.y*/)
+            //{
+            //    behindBoat = other.gameObject.GetComponent<Boat>();
+            //    behindBoat.StopEngine();
+            //    //Debug.Log ("Engine stop");
+            //}
         }
         if (CurrentAngle >= 225 && CurrentAngle < 315)
         {
