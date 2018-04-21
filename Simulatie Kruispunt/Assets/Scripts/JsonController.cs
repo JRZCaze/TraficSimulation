@@ -206,9 +206,9 @@ public class JsonController : MonoBehaviour {
                 Debug.Log(resultTrafficLightData.trafficLights[i].lightStatus);
             }
         }
-        if (resultBridgeData != null && resultBridgeData.bridgeOpen != BridgeScript.BridgeOpen) // bridgestuff
+        if (resultBridgeData != null && resultBridgeData.opened != BridgeScript.BridgeOpen) // bridgestuff
         {
-            wishedBridgeState = resultBridgeData.bridgeOpen;
+            wishedBridgeState = resultBridgeData.opened;
             ThreadStart BridgeRetrieve = new ThreadStart(BridgeUpdate);
             Debug.Log("In Main: Creating the Child thread");
             Bridge = new Thread(BridgeRetrieve);
@@ -237,7 +237,7 @@ public class JsonController : MonoBehaviour {
         BridgeScript.ChangeBridgeState(wishedBridgeState);
         JsonController.bridgeData dataset = new JsonController.bridgeData();
         dataset.type = "BridgeStatusData";
-        dataset.bridgeOpen = BridgeScript.BridgeOpen;
+        dataset.opened = BridgeScript.BridgeOpen;
         Send(dataset);
     }
 
@@ -267,7 +267,7 @@ public class JsonController : MonoBehaviour {
 
     public bool RetrieveBridgePos()
     {
-        return resultBridgeData.bridgeOpen;
+        return resultBridgeData.opened;
     }
     // classes
     public class triggers
@@ -288,7 +288,7 @@ public class JsonController : MonoBehaviour {
     public class bridgeData
     {
         public string type{ get; set; }
-        public bool bridgeOpen { get; set; }
+        public bool opened { get; set; }
     }
 
     public class trafficLightData
