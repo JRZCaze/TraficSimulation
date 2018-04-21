@@ -10110,7 +10110,7 @@ Prefab:
     - target: {fileID: 114983237896526010, guid: 2d5b4db3e5ad8464f92b9b716b1e6145,
         type: 2}
       propertyPath: forcedAngle
-      value: 270
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d5b4db3e5ad8464f92b9b716b1e6145, type: 2}
@@ -12521,7 +12521,7 @@ Prefab:
     - target: {fileID: 114257305616501184, guid: 3b543f7bce9efbc458d3e5a5ecdcbb80,
         type: 2}
       propertyPath: spawnRate
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 212893818413874868, guid: 3b543f7bce9efbc458d3e5a5ecdcbb80,
         type: 2}
@@ -13901,7 +13901,7 @@ Prefab:
     - target: {fileID: 114257305616501184, guid: 3b543f7bce9efbc458d3e5a5ecdcbb80,
         type: 2}
       propertyPath: spawnRate
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 212893818413874868, guid: 3b543f7bce9efbc458d3e5a5ecdcbb80,
         type: 2}
@@ -14387,7 +14387,7 @@ Prefab:
     - target: {fileID: 114573357127133584, guid: 55fae093d76b36b4bacf63946867be07,
         type: 2}
       propertyPath: LanTest
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114573357127133584, guid: 55fae093d76b36b4bacf63946867be07,
         type: 2}
