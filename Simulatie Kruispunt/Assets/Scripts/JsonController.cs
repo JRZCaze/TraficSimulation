@@ -206,7 +206,7 @@ public class JsonController : MonoBehaviour {
                 Debug.Log(resultTrafficLightData.trafficLights[i].lightStatus);
             }
         }
-        if (resultBridgeData != null && resultBridgeData.bridgeOpen != BridgeScript.BridgeOpen) // bridgestuff
+        if (resultBridgeData != null && resultBridgeData.bridgeOpen != BridgeScript.BridgeOpen && resultBridgeData.type == "BridgeData") // bridgestuff
         {
             wishedBridgeState = resultBridgeData.bridgeOpen;
             ThreadStart BridgeRetrieve = new ThreadStart(BridgeUpdate);
