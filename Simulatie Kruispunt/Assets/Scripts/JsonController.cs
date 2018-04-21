@@ -103,7 +103,7 @@ public class JsonController : MonoBehaviour {
         sck.Send(msgBuffer, 0, msgBuffer.Length, 0);
     }
 
-    public void Send(bridgeData data)
+    public void Send(bridgeDataSend data)
     {
         string msg = Newtonsoft.Json.JsonConvert.SerializeObject(data) + "\n";
         //Debug.Log(msg);
@@ -206,9 +206,9 @@ public class JsonController : MonoBehaviour {
                 Debug.Log(resultTrafficLightData.trafficLights[i].lightStatus);
             }
         }
-        if (resultBridgeData != null && resultBridgeData.opened != BridgeScript.BridgeOpen) // bridgestuff
+        if (resultBridgeData != null && resultBridgeData.bridgeOpen != BridgeScript.BridgeOpen) // bridgestuff
         {
-            wishedBridgeState = resultBridgeData.opened;
+            wishedBridgeState = resultBridgeData.bridgeOpen;
             ThreadStart BridgeRetrieve = new ThreadStart(BridgeUpdate);
             Debug.Log("In Main: Creating the Child thread");
             Bridge = new Thread(BridgeRetrieve);
@@ -235,7 +235,7 @@ public class JsonController : MonoBehaviour {
     {
         System.Threading.Thread.Sleep(5000);
         BridgeScript.ChangeBridgeState(wishedBridgeState);
-        JsonController.bridgeData dataset = new JsonController.bridgeData();
+        JsonController.bridgeDataSend dataset = new JsonController.bridgeDataSend();
         dataset.type = "BridgeStatusData";
         dataset.opened = BridgeScript.BridgeOpen;
         Send(dataset);
@@ -267,7 +267,7 @@ public class JsonController : MonoBehaviour {
 
     public bool RetrieveBridgePos()
     {
-        return resultBridgeData.opened;
+        return resultBridgeData.bridgeOpen;
     }
     // classes
     public class triggers
@@ -285,10 +285,16 @@ public class JsonController : MonoBehaviour {
     }
 
     [System.Serializable]
-    public class bridgeData
+    public class bridgeDataSend
     {
         public string type{ get; set; }
         public bool opened { get; set; }
+    }
+
+    public class bridgeData
+    {
+        public string type { get; set; }
+        public bool bridgeOpen { get; set; }
     }
 
     public class trafficLightData
