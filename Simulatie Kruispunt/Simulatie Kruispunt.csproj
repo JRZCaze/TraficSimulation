@@ -291,6 +291,7 @@
     <Compile Include="Assets\Scripts\Car.cs" />
     <Compile Include="Assets\Scripts\CarCheckerTrigger.cs" />
     <Compile Include="Assets\Scripts\CarSpawner.cs" />
+    <Compile Include="Assets\Scripts\CarStartrBackup.cs" />
     <Compile Include="Assets\Scripts\Controller.cs" />
     <Compile Include="Assets\Scripts\Json.cs" />
     <Compile Include="Assets\Scripts\JsonController.cs" />

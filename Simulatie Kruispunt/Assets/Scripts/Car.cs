@@ -125,6 +125,7 @@ public class Car : MonoBehaviour {
     {
         //DestroyGameObject();
         Debug.Log("BOOOOM");
+        Debug.Log(" other.gameObject.name");
     }
 
     void OnTriggerStay2D(Collider2D other)
