@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UtilityTrigger : MonoBehaviour {
-
+    Renderer rend;
     private Bike Bike;
     private Car Car;
     private Pedestrian Pedestrian;
     private Boat Boat;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        rend = GetComponent<Renderer>();
+        rend.material.color = new Color(255, 255, 255, 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {

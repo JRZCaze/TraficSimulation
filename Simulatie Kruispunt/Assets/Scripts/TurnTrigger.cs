@@ -30,7 +30,7 @@ public class TurnTrigger : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
-        //rend.material.color = new Color(255, 255, 255, 0);
+        rend.material.color = new Color(255, 255, 255, 0);
     }
 	
 	// Update is called once per frame
