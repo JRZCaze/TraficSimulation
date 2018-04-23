@@ -221,14 +221,14 @@ public class TraficLight : MonoBehaviour {
         {
             try
             {
-                Pedestrian.StopEngine();
+                Pedestrian.StartEngine();
             }
             catch
             {
             }
             try
             {
-                Pedestrian2.StopEngine();
+                Pedestrian2.StartEngine();
             }
             catch
             {
@@ -238,14 +238,14 @@ public class TraficLight : MonoBehaviour {
         {
             try
             {
-                Pedestrian.StartEngine();
+                Pedestrian.StopEngine();
             }
             catch
             {
             }
             try
             {
-                Pedestrian2.StartEngine();
+                Pedestrian2.StopEngine();
             }
             catch
             {
