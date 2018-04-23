@@ -62,7 +62,7 @@ public class TraficLightList : MonoBehaviour {
         dataSet = Newtonsoft.Json.JsonConvert.SerializeObject(CurrentData);
         DataController.GenerateDataTemplate(dataSet);
 
-        Debug.Log(CurrentData.type);
+        //Debug.Log(CurrentData.type);
     }
 	
 	// Update is called once per frame

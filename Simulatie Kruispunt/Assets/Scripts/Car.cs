@@ -26,7 +26,6 @@ public class Car : MonoBehaviour {
     private float turnSpeed;
     public bool TurnRight;
     public bool TurnLeft;
-    private bool carDrive;
 
     private float StandingStillCount;
     private float StandingStillCount2;
@@ -130,7 +129,7 @@ public class Car : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (CurrentAngle < 45 && CurrentAngle >= 315)
+        if (CurrentAngle < 45 || CurrentAngle >= 315)
         {
             if (other.gameObject.transform.position.x < transform.position.x && (other.gameObject.name.Contains("Car") || other.gameObject.name.Contains("Bus")) /*&& transform.position.y == other.gameObject.transform.position.y*/)
             {
@@ -205,9 +204,9 @@ public class Car : MonoBehaviour {
 		CanDrive = true;
 	}
 
-    public void StartEngineforce()// temp
+    public void ChangeMaxSpeed(float speed)// temp
     {
-        carDrive = true;
+        MaxSpeed = speed;
     }
 
     public void StopEngine()
@@ -272,7 +271,7 @@ public class Car : MonoBehaviour {
         TurnRight = false;
     }
 
-    void DestroyGameObject()
+    public void DestroyGameObject()
     {
         Destroy(gameObject);
     }

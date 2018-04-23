@@ -119,8 +119,8 @@ public class JsonController : MonoBehaviour {
             int rec = sck.Receive(buffer, 0, buffer.Length, 0);
 
             Array.Resize(ref buffer, rec);
-            Debug.Log(Encoding.Default.GetString(buffer));
-            Debug.Log(buffer);
+            //Debug.Log(Encoding.Default.GetString(buffer));
+            //Debug.Log(buffer);
             RecieveData(Encoding.Default.GetString(buffer));
         }
         //Debug.Log(Encoding.Default.GetString(buffer));
@@ -182,7 +182,7 @@ public class JsonController : MonoBehaviour {
             }
         catch { }
             
-        Debug.Log(Data);
+        //Debug.Log(Data);
         CurrentData = JsonConvert.DeserializeObject<trafficLightData>(DataString);
         if (resultTrafficLightData != null && CurrentData != null)
         {
@@ -202,8 +202,8 @@ public class JsonController : MonoBehaviour {
         {
             for (int i = 0; i < resultTrafficLightData.trafficLights.Count; i++)
             {
-                Debug.Log(resultTrafficLightData.trafficLights[i].id);
-                Debug.Log(resultTrafficLightData.trafficLights[i].lightStatus);
+                //Debug.Log(resultTrafficLightData.trafficLights[i].id);
+                //Debug.Log(resultTrafficLightData.trafficLights[i].lightStatus);
             }
         }
         if (resultBridgeData != null && resultBridgeData.bridgeOpen != BridgeScript.BridgeOpen && resultBridgeData.type == "BridgeData") // bridgestuff
@@ -219,11 +219,11 @@ public class JsonController : MonoBehaviour {
         {
             if (!resultTimeScale.status)
             {
-                Debug.Log("give another timescale");
+                //Debug.Log("give another timescale");
             }
             else
             {
-                Debug.Log("it works");
+                //Debug.Log("it works");
             }
         }
         resultTimeScale = null;
@@ -258,9 +258,9 @@ public class JsonController : MonoBehaviour {
         {
             while (true)
             {
-                Debug.Log("startscan");
+                //Debug.Log("startscan");
                 Recieve();
-                Debug.Log("stopscan");
+                //Debug.Log("stopscan");
             }
         }
     }

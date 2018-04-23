@@ -158,7 +158,7 @@ public class Boat : MonoBehaviour {
         }
     }
 
-    void DestroyGameObject()
+    public void DestroyGameObject()
     {
         Destroy(gameObject);
     }

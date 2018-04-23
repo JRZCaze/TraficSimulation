@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UtilityTrigger : MonoBehaviour {
 
+    private Bike Bike;
+    private Car Car;
+    private Pedestrian Pedestrian;
+    private Boat Boat;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +17,50 @@ public class UtilityTrigger : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        try
+        {
+            Boat = other.gameObject.GetComponent<Boat>(); ;
+        }
+        catch { }
+        try
+        {
+            Car = other.gameObject.GetComponent<Car>(); ;
+        }
+        catch { }
+        try
+        {
+            Pedestrian = other.gameObject.GetComponent<Pedestrian>(); ;
+        }
+        catch { }
+        try
+        {
+            Bike = other.gameObject.GetComponent<Bike>(); ;
+        }
+        catch { }
+        //destroy
+        try
+        {
+            Boat.DestroyGameObject();
+        }
+        catch { }
+        try
+        {
+            Car.DestroyGameObject();
+        }
+        catch { }
+        try
+        {
+            Pedestrian.DestroyGameObject();
+        }
+        catch { }
+        try
+        {
+            Bike.DestroyGameObject();
+        }
+        catch { }
+
+
+    }
 }

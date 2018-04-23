@@ -62,10 +62,11 @@ public class Pedestrian : MonoBehaviour {
         {
             if (StandingStillX == transform.position.x && StandingStillY == transform.position.y)
             {
-                Speed = 0;
+                //float speedtemp = 1/10000;
+                Speed = 1 / 10000;
             }
-            StandingStillX = transform.position.x;
-            StandingStillY = transform.position.y;
+            //StandingStillX = transform.position.x;
+            //StandingStillY = transform.position.y;
             StandingStillCount = 0;
         }
         if (transform.position.x < -100 || transform.position.x > 100 || transform.position.y < -100 || transform.position.y > 100)
@@ -169,7 +170,7 @@ public class Pedestrian : MonoBehaviour {
         TurnRight = false;
     }
 
-    void DestroyGameObject()
+    public void DestroyGameObject()
     {
         Destroy(gameObject);
     }

@@ -24,6 +24,8 @@ public class Bike : MonoBehaviour {
     private float StandingStillY;
     private float turnAngle;
     private float turnSpeed;
+    private float minspeed;
+    private bool change;
 
     void Start()
     {
@@ -32,14 +34,17 @@ public class Bike : MonoBehaviour {
         transform.eulerAngles = new Vector3(0, 0, StartAngle);
         CanWalk = true;
         CurrentAngle = StartAngle;
+        minspeed = 1 / 1000;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        StandingStillCount++;
-
+        if (Speed == minspeed)
+        {
+            StandingStillCount++;
+        }
         transform.eulerAngles = new Vector3(0, 0, CurrentAngle);
         transform.Translate(Speed / 100, 0, 0);
         if (TurnLeft)
@@ -56,18 +61,25 @@ public class Bike : MonoBehaviour {
         }
         if (!CanWalk)
         {
-            Speed = 0;
+            Speed = minspeed;
         }
-        if (StandingStillCount == 5)
+        /*if (StandingStillCount == 5)
         {
-            if (StandingStillX == transform.position.x && StandingStillY == transform.position.y)
+            //float speedtemp = 1/10000;
+            if (change)
             {
-                Speed = 0;
+                Speed = 1;
             }
-            StandingStillX = transform.position.x;
-            StandingStillY = transform.position.y;
+            if (!change)
+                
+            {
+                Speed = -1;
+            }
+            change = !change;
+            //StandingStillX = transform.position.x;
+            //StandingStillY = transform.position.y;
             StandingStillCount = 0;
-        }
+        }*/
         if (transform.position.x < -100 || transform.position.x > 100 || transform.position.y < -100 || transform.position.y > 100)
         {
             //behindCar = null;
@@ -183,7 +195,7 @@ public class Bike : MonoBehaviour {
         TurnRight = false;
     }
 
-    void DestroyGameObject()
+    public void DestroyGameObject()
     {
         Destroy(gameObject);
     }

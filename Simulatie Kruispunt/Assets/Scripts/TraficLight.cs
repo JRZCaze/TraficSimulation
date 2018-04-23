@@ -9,9 +9,16 @@ public class TraficLight : MonoBehaviour {
 	private CapsuleCollider2D myCapsuleCollider;
 	private Car Car;
     private Car Car2;
+    private Car Car3;
+    private Car Car4;
     private Pedestrian Pedestrian;
+    private Pedestrian Pedestrian2;
+    private Pedestrian PedestrianTemp;
     private Bike Bike;
+    private Bike Bike2;
+    private Bike BikeTemp;
     private Boat Boat;
+    private Boat BoatTemp;
     public Sprite Red;
     public Sprite Green;
     public bool greenLight;
@@ -97,35 +104,113 @@ public class TraficLight : MonoBehaviour {
             {
                 Car = other.gameObject.GetComponent<Car>();
                 Car2 = other.gameObject.GetComponent<Car>();
+                Car3 = other.gameObject.GetComponent<Car>();
+                Car4 = other.gameObject.GetComponent<Car>();
             }
             if (Car == Car2 && other != Car)
             {
                 Car2 = other.gameObject.GetComponent<Car>();
             }
+            if (Car == Car3 || Car == Car2 && other != Car || other != Car2)
+            {
+                Car3 = other.gameObject.GetComponent<Car>();
+            }
+            if (Car == Car4 || Car == Car3 || Car == Car2 && other != Car || other != Car2 || other != Car3)
+            {
+                Car4 = other.gameObject.GetComponent<Car>();
+            }
         }
         catch
         {
         }
-        try { Pedestrian = other.gameObject.GetComponent<Pedestrian>(); }
+        try { PedestrianTemp = other.gameObject.GetComponent<Pedestrian>(); }
         catch
         {
         }
-        try { Bike = other.gameObject.GetComponent<Bike>(); }
+        try { BikeTemp = other.gameObject.GetComponent<Bike>(); }
         catch
         {
         }
-        try { Boat = other.gameObject.GetComponent<Boat>(); }
-        catch { Debug.Log("unknown entity"); }
-        
+        try { BoatTemp = other.gameObject.GetComponent<Boat>(); }
+        catch {}
 
-		if (greenLight && Car!= null) 
+        if (PedestrianTemp != null)
+        {
+            Pedestrian = PedestrianTemp;
+        }
+        if (Pedestrian != null && PedestrianTemp != Pedestrian)
+        {
+            Pedestrian2 = PedestrianTemp;
+        }
+        if (BikeTemp != null)
+        {
+            Bike = BikeTemp;
+        }
+        if (Bike != null && BikeTemp != Bike)
+        {
+            Bike2 = BikeTemp;
+        }
+        if (BoatTemp != null)
+        {
+            Boat = BoatTemp;
+        }
+
+
+        if (greenLight && Car!= null) 
 		{
-			Car.StartEngine ();
-		} else if (Car != null) {
-			Car.StopEngine ();
+            try
+            {
+                Car.StartEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Car2.StartEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Car3.StartEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Car4.StartEngine();
+            }
+            catch
+            {
+            }
+        } else if (Car != null) {
+            try
+            {
+                Car.StopEngine();
+            }
+            catch
+            {
+            }
             try
             {
                Car2.StopEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Car3.StopEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Car4.StopEngine();
             }
             catch
             {
@@ -134,20 +219,71 @@ public class TraficLight : MonoBehaviour {
 
         if (greenLight && Pedestrian != null)
         {
-            Pedestrian.StartEngine();
+            try
+            {
+                Pedestrian.StopEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Pedestrian2.StopEngine();
+            }
+            catch
+            {
+            }
         }
         else if(Pedestrian != null)
         {
-            Pedestrian.StopEngine();
+            try
+            {
+                Pedestrian.StartEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Pedestrian2.StartEngine();
+            }
+            catch
+            {
+            }
         }
-
         if (greenLight && Bike != null)
         {
-            Bike.StartEngine();
+            try
+            {
+                Bike.StartEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Bike2.StartEngine();
+            }
+            catch
+            {
+            }
         }
-        else if(Bike != null)
+        else if (Bike != null)
         {
-            Bike.StopEngine();
+            try
+            {
+                Bike.StopEngine();
+            }
+            catch
+            {
+            }
+            try
+            {
+                Bike2.StopEngine();
+            }
+            catch
+            {
+            }
         }
 
         if (greenLight && Boat != null)

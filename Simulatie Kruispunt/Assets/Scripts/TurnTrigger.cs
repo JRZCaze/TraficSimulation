@@ -13,6 +13,7 @@ public class TurnTrigger : MonoBehaviour {
     public float TurnOption2;
     public float TurnOption3;
     public float TurnOption4;
+    public float Setspeed;
     public int random1;
     public int random2;
     public int random3;
@@ -29,7 +30,7 @@ public class TurnTrigger : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
-        rend.material.color = new Color(255, 255, 255, 0);
+        //rend.material.color = new Color(255, 255, 255, 0);
     }
 	
 	// Update is called once per frame
@@ -278,6 +279,11 @@ public class TurnTrigger : MonoBehaviour {
                     {
                     }
                 }
+            }
+
+            if (Setspeed > 0)
+            {
+                Car.ChangeMaxSpeed(Setspeed);
             }
 
         }
